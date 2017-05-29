@@ -54,3 +54,36 @@ INSERT INTO staff(last_name,first_name,manager_id,position,department_id,salary)
 ('Allen','Liz',12,'Secretary','E','2800.00'),
 ('Blue','Jennifer',13,'Secretary','C','2500.00'),
 ('Wood','Albert',10,'Secretary','P','2800.00');
+SELECT 
+    ROUND(SUM(salary), 2) AS sumx,
+    ROUND(AVG(salary), 2) AS salary
+FROM
+    staff
+WHERE
+    position = 'Profesor';
+SELECT 
+    COUNT(*) AS profesores
+FROM
+    staff
+WHERE
+    position = 'Profesor';
+SELECT 
+    COUNT(DISTINCT descr) AS departamentos
+FROM
+    department;
+SELECT 
+    ROUND(AVG(salary), 2) AS salary
+FROM
+    staff
+WHERE
+    position = 'Secretary';
+SELECT 
+    position,
+    COUNT(position) AS cuantos,
+    ROUND(AVG(salary), 2) AS salary,
+    ROUND(STDDEV(salary), 2) AS std_salary
+FROM
+    staff
+GROUP BY position;
+
+
